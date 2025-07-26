@@ -1,0 +1,21 @@
+name: 'Diff Status Action'
+description: |
+  Marks specified statuses as successful if pull request changed files all match the specified globs.
+  Use this action to exempt minor updates (e.g. documentation, tests) from deployment checks.
+author: 'xeger'
+inputs:
+  token:
+    description: 'GitHub token for API access'
+    required: true
+  globs:
+    description: 'Newline-separated list of glob patterns to match against changed files'
+    required: true
+  statuses:
+    description: 'Newline-separated list of status check names to update'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'check-circle'
+  color: 'green'
