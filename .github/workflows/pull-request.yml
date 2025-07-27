@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Diff Status Action
+        uses: ./
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          globs: |
+            **/*.md
+          statuses: |
+            build
+            lint
+            test
+            verify-build
