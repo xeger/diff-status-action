@@ -18,7 +18,7 @@ jobs:
         with:
           globs: |
             **/*.md
-            LICENSE.txt
+            LICENSE
           statuses: |
             deploy-production
             deploy-staging
